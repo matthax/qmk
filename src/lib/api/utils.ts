@@ -7,7 +7,7 @@ export declare type PostData = object | string;
 
 const isQueryPrimitive = (param: QueryParam): param is QueryPrimitive => (!Array.isArray(param));
 
-export const serializeQueryParam = ([key, param]: [string, QueryParam]) => {
+export const serializeQueryParam = ([key, param]: [string, QueryParam]): string => {
   if (isQueryPrimitive(param)) {
     return `${encodeURIComponent(key)}=${encodeURIComponent(param)}`;
   }
@@ -16,7 +16,7 @@ export const serializeQueryParam = ([key, param]: [string, QueryParam]) => {
     .join('&');
 };
 
-export const getURI = (uri: string, query?: QueryParams) => (
+export const getURI = (uri: string, query?: QueryParams): string => (
   query
     ? `${uri}?${Object.entries(query)
       .map((pairs) => serializeQueryParam(pairs))
@@ -24,4 +24,6 @@ export const getURI = (uri: string, query?: QueryParams) => (
     : uri
 );
 
-export const serialize = (data?: PostData) => (data ? JSON.stringify(data) : undefined);
+export const serialize = (data?: PostData): string | undefined => (
+  data ? JSON.stringify(data) : undefined
+);

@@ -13,6 +13,7 @@ export declare type RequestMethod = 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE' 
 
 export class RequestError extends Error {
   request: RequestInfo;
+
   response: Response;
 
   constructor(request: RequestInfo, response: Response, message?: string) {
@@ -28,7 +29,7 @@ export class RequestError extends Error {
  * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
  * @param {RequestInfo} r The {@link RequestInfo} passed to fetch
  */
-const fetchData = (r: RequestInfo) => (
+const fetchData = <T>(r: RequestInfo): Promise<T> => (
   fetch(r).then((response: Response) => {
     if (response.ok) {
       // 204 will cause an exception here
@@ -42,8 +43,8 @@ const fetchData = (r: RequestInfo) => (
  * @param {string} uri The URI the GET request will be sent to
  * @param {QueryParams} query Optional query params object
  */
-export const get = (uri: string, query?: QueryParams) => (
-  fetchData(
+export const get = <T>(uri: string, query?: QueryParams): Promise<T> => (
+  fetchData<T>(
     new Request(getURI(uri, query), {
       method: 'GET',
       headers: new Headers({ accept: 'application/json' }),
@@ -56,8 +57,8 @@ export const get = (uri: string, query?: QueryParams) => (
  * @param {PostData} data Optional {@link PostData} sent to the URI as JSON content
  * @param {QueryParams} query Optional query parameters added to the provided URI
  */
-export const post = (uri: string, data?: PostData, query?: QueryParams) => (
-  fetchData(
+export const post = <T>(uri: string, data?: PostData, query?: QueryParams): Promise<T> => (
+  fetchData<T>(
     new Request(getURI(uri, query), {
       method: 'GET',
       headers: new Headers({
