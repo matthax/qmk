@@ -57,7 +57,7 @@ test('Default RequestError message', (t) => {
 });
 
 test('Custom RequestError message', (t) => {
-  t.is(new RequestError('http://google.com', new Response(), 'Custom Message').message, 'Custom Message')
+  t.is(new RequestError('http://google.com', new Response(), 'Custom Message').message, 'Custom Message');
 });
 
 test('Custom RequestError message using RequestInfo', (t) => {
