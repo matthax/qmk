@@ -1,6 +1,6 @@
 {
   "name": "qmk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "QMK API bindings. Get information on keyboards, compile firmware and more",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
