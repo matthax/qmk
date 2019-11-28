@@ -7,7 +7,7 @@
   "module": "build/module/index.js",
   "repository": "https://github.com/matthax/qmk",
   "license": "MIT",
-  "keywords": [],
+  "keywords": ["qmk","node","browser","keyboard","api","firmware"],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",

@@ -1,6 +1,4 @@
- [![npm][shield-npm]][package] [![CircleCI][shield-circle]](https://circleci.com/gh/matthax/qmk)  [![node][shield-node]][package] [![Discord](https://img.shields.io/discord/440868230475677696?style=flat-square)](https://discord.gg/Uq7gcHh)
-
- [![CircleCI](https://circleci.com/gh/matthax/qmk.svg?style=svg)](https://circleci.com/gh/matthax/qmk)
+ [![npm][shield-npm]][package] [![CircleCI][shield-circle]](https://circleci.com/gh/matthax/qmk)   [![CodeCov][shield-codecov]][codecov] [![node][shield-node]][package] [![Discord](https://img.shields.io/discord/440868230475677696?style=flat-square)](https://discord.gg/Uq7gcHh)
 
 # QMK.js
 
@@ -67,6 +65,8 @@ Please make sure to update tests as appropriate.
 [compiler-api]: https://github.com/qmk/qmk_api/blob/master/docs/api_docs.md
 [chat]: 440868230475677697
 [package]: https://www.npmjs.com/package/qmk
+[codecov]: https://codecov.io/gh/matthax/qmk
 [shield-npm]: https://img.shields.io/npm/v/qmk?style=flat-square
 [shield-node]: https://img.shields.io/node/v/qmk?style=flat-square
 [shield-circle]: https://img.shields.io/circleci/build/github/matthax/qmk?style=flat-square
+[shield-codecov]: https://img.shields.io/codecov/c/github/matthax/qmk?style=flat-square
