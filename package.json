@@ -30,7 +30,8 @@
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && yarn",
     "clean": "trash build test",
-    "prepare-release": "run-s reset test cov:check doc:html version doc:publish yarn publish",
+    "prepare-release": "run-s reset test cov:check doc:html version doc:publish release",
+    "release": "yarn publish",
     "preinstall": "echo \"⌨️ let's get clacking\""
   },
   "scripts-info": {
@@ -44,7 +45,8 @@
     "doc:json": "Generate API documentation in typedoc JSON format",
     "version": "Bump package.json version, update CHANGELOG.md, tag release",
     "reset": "Delete all untracked files and reset the repo to the last commit",
-    "prepare-release": "One-step: clean, build, test and prep a release"
+    "prepare-release": "One-step: clean, build, test and prep a release",
+    "release": "Publish docs and update the package registry"
   },
   "engines": {
     "node": ">=8.9"
