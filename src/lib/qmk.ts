@@ -51,7 +51,7 @@ export class QMKClient {
   url: string;
 
   constructor(version: API_VERSION) {
-    this.url = `${exports.API_ROOT}${version}/`;
+    this.url = `${API_ROOT}${version}/`;
   }
 
   keyboards = (...names: string[]): Promise<KeyboardsResponse> => (
