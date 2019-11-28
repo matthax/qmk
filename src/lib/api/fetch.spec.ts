@@ -1,7 +1,9 @@
 // eslint-disable-next-line
 import test from 'ava';
+import fetchPonyfill from 'fetch-ponyfill';
 import { post, get, RequestError } from './fetch';
 
+const { Request, Response } = fetchPonyfill();
 const HTTP_BIN = 'https://httpbin.org/';
 const api = (endpoint: string): string => `${HTTP_BIN}${endpoint}`;
 
@@ -42,4 +44,22 @@ test('5xx response code', async (t) => {
   await t.throwsAsync(get(`${api('status')}/500`), {
     instanceOf: RequestError,
   });
+});
+
+test('Default RequestError message', (t) => {
+  t.is(
+    new RequestError(
+      'http://google.com',
+      new Response('', { status: 400, statusText: 'Oopsie!' }),
+    ).message,
+    '400: Oopsie! at http://google.com',
+  );
+});
+
+test('Custom RequestError message', (t) => {
+  t.is(new RequestError('http://google.com', new Response(), 'Custom Message').message, 'Custom Message')
+});
+
+test('Custom RequestError message using RequestInfo', (t) => {
+  t.is(new RequestError(new Request('http://google.com', { method: 'GET' }), new Response(), 'Test message').message, 'Test message');
 });
