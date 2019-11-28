@@ -45,4 +45,9 @@ test('complex query params', (t) => {
 test('serialize simple data', (t) => {
   t.is(serialize({ data: 'keyboards' }), '{"data":"keyboards"}');
 });
+
+test('serialize undefined data', (t) => {
+  t.is(typeof serialize(undefined), typeof undefined);
+});
+
 test.todo('Support FormData and test it here');

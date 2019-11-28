@@ -34,6 +34,7 @@ test('simple json post', (t) => (post<SimplePostResponse>(api('post'), simpleDat
 test('4xx response code', async (t) => {
   await t.throwsAsync(get(`${api('status')}/400`), {
     instanceOf: RequestError,
+    message: '400: BAD REQUEST at https://httpbin.org/status/400',
   });
 });
 
