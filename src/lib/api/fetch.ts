@@ -60,7 +60,7 @@ export const get = <T>(uri: string, query?: QueryParams): Promise<T> => (
 export const post = <T>(uri: string, data?: PostData, query?: QueryParams): Promise<T> => (
   fetchData<T>(
     new Request(getURI(uri, query), {
-      method: 'GET',
+      method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
         Accept: 'application/json',
