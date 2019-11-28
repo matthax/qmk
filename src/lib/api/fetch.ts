@@ -1,5 +1,10 @@
 import fetchPonyfill from 'fetch-ponyfill';
-import { serialize, getURI, QueryParams, PostData } from './utils';
+import {
+  serialize,
+  getURI,
+  QueryParams,
+  PostData,
+} from './utils';
 
 const { fetch, Request, Headers } = fetchPonyfill({ Promise });
 
@@ -9,11 +14,12 @@ export declare type RequestMethod = 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE' 
 export class RequestError extends Error {
   request: RequestInfo;
   response: Response;
+
   constructor(request: RequestInfo, response: Response, message?: string) {
-      super(message || `${response.status}: ${response.statusText} at ${typeof request === 'string' ? request : request.url}`);
-      this.name = 'RequestError';
-      this.request = request;
-      this.response = response;
+    super(message || `${response.status}: ${response.statusText} at ${typeof request === 'string' ? request : request.url}`);
+    this.name = 'RequestError';
+    this.request = request;
+    this.response = response;
   }
 }
 /**
@@ -22,33 +28,43 @@ export class RequestError extends Error {
  * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
  * @param {RequestInfo} r The {@link RequestInfo} passed to fetch
  */
-const fetchData = (r: RequestInfo) => (fetch(r).then((response: Response) => {
+const fetchData = (r: RequestInfo) => (
+  fetch(r).then((response: Response) => {
     if (response.ok) {
-        // 204 will cause an exception here
-        return response.json();
+      // 204 will cause an exception here
+      return response.json();
     }
     throw new RequestError(r, response);
-}));
+  })
+);
 /**
  * Issue a simple get request and return JSON content
  * @param {string} uri The URI the GET request will be sent to
  * @param {QueryParams} query Optional query params object
  */
-export const get = (uri: string, query?: QueryParams) => (fetchData(new Request(getURI(uri, query), {
-    method: 'GET',
-    headers: new Headers({ accept: 'application/json' }),
-})));
+export const get = (uri: string, query?: QueryParams) => (
+  fetchData(
+    new Request(getURI(uri, query), {
+      method: 'GET',
+      headers: new Headers({ accept: 'application/json' }),
+    }),
+  )
+);
 /**
  * Issue a post request and return the deserialized json response content
  * @param {string} uri The URI the POST request will be sent to
  * @param {PostData} data Optional {@link PostData} sent to the URI as JSON content
  * @param {QueryParams} query Optional query parameters added to the provided URI
  */
-export const post = (uri: string, data?: PostData, query?: QueryParams) => (fetchData(new Request(getURI(uri, query), {
-    method: 'GET',
-    headers: new Headers({
+export const post = (uri: string, data?: PostData, query?: QueryParams) => (
+  fetchData(
+    new Request(getURI(uri, query), {
+      method: 'GET',
+      headers: new Headers({
         'Content-Type': 'application/json',
         Accept: 'application/json',
+      }),
+      body: serialize(data),
     }),
-    body: serialize(data),
-})));
+  )
+);
