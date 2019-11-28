@@ -54,7 +54,7 @@ export class QMKClient {
     this.url = `${exports.API_ROOT}${version}/`;
   }
 
-  keyboards = (...names: string[]): KeyboardsResponse => (
-    get(`${this.url}${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
+  keyboards = (...names: string[]): Promise<KeyboardsResponse> => (
+    get<KeyboardsResponse>(`${this.url}${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
   );
 }
