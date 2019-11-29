@@ -15,14 +15,14 @@ export const promiseKeyboardExample = (): Promise<Keyboard> => {
   });
 };
 
-export const asyncKeyboardExample = async (): Promise<Keyboard> => {
+export const asyncKeyboardsExample = async (): Promise<Keyboard[]> => {
   // Create an API client using the provided version
   const client = new QMK('v1');
-  const keyboardName = 'massdrop/alt';
 
   // Fetch keyboard metadata
-  const { keyboards } = await client.keyboards(keyboardName);
-  const keyboard: Keyboard = keyboards[keyboardName];
-  console.info(`${keyboard.keyboard_name} has ${Object.keys(keyboard.layouts).length} layouts`);
-  return keyboard;
+  const { keyboards } = await client.keyboards('all');
+  return Object.values(keyboards).map((keyboard) => {
+    console.info(`${keyboard.keyboard_name} has ${Object.keys(keyboard.layouts).length} layouts`);
+    return keyboard;
+  });
 };
