@@ -44,7 +44,7 @@ export type KeyboardsResponse = {
 /**
  * Retrieve metadata about keyboards
  * ```typescript
- * const { git_hash, last_updated, keyboards } = await keyboards('https://api.qmk.fm/', 'massdrop/alt');
+ * const { git_hash, last_updated, keyboards } = await keyboards('https://api.qmk.fm/v1/', 'massdrop/alt');
  * ```
  * @param {string} api The QMK API url
  * @param {...string} names Provide one or more keyboard names, or use the special "all" keyword
