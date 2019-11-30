@@ -41,6 +41,29 @@ export type KeyboardsResponse = {
   last_updated: string;
   keyboards: Keyboards;
 };
+// Keymap response types
+export type Layer = string[];
+export type Layers = Layer[];
+export type Keymap = {
+  keyboard_name: string;
+  keymap_folder: string;
+  keymap_name: string;
+  layers: Layers;
+};
+export type Keymaps = {
+  [keymap: string]: Keymap;
+};
+export type KeymapKeyboard = Keyboard & { keymaps: Keymaps };
+export type KeymapKeyboards = {
+  [name: string]: KeymapKeyboard;
+}
+export type KeymapResponse = {
+  git_hash: string;
+  last_updated: string;
+  keyboards: KeymapKeyboards;
+}
+
+
 /**
  * Retrieve metadata about keyboards
  * ```typescript
@@ -62,7 +85,27 @@ export const keyboards = (api: string, ...names: string[]): Promise<KeyboardsRes
  * ```
  */
 export const readme = (api: string, name: string): Promise<string> => (
-  get<string>(`${api}/keyboards/${name}/readme`)
+  get<string>(`${api}/keyboards/${name}/readme`, undefined, { Accept: 'text/markdown' })
+);
+
+/**
+ * Get the keymap data associated with the provided keyboard and keymap name
+ * @param api The QMK API endpoint
+ * @param keyboard The name of the keyboard
+ * @param keymap The name of the keymap
+ * ```typescript
+ * const keyboardName = 'handwired/promethium';
+ * const keymapName = 'default';
+ * const { keyboards } = await keymaps('https://api.qmk.fm/v1/', keyboardName, keymapName);
+ * const keyboard = keyboards[keyboardName]
+ * // Get the keymap for the keyboard
+ * const { keymaps: { [keymapName]: keymap } } = keyboard;
+ * console.info(`${keymap.keyboard_name} has ${keymap.layers.length} layers
+ * in the ${keymap.keymap_name} keymap`);
+ * ```
+ */
+export const keymaps = (api: string, keyboard: string, keymap: string): Promise<string> => (
+  get<string>(`${api}/keyboards/${keyboard}/keymaps/${keymap}`)
 );
 
 export default keyboards;
