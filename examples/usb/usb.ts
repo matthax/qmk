@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import QMK, { Vendors, Products, KeyboardMeta } from '../../src';
 
 export const vendorsExample = (): Promise<Vendors> => {

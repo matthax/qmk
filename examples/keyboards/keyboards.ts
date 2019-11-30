@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import QMK, { Keyboard } from '../../src';
 
 export const keyboardExample = async (): Promise<Keyboard> => {
