@@ -1,4 +1,4 @@
-import QMK, { Vendors, Products, KeyboardsMeta, KeyboardMeta } from '../../src';
+import QMK, { Vendors, Products, KeyboardMeta } from '../../src';
 
 export const vendorsExample = (): Promise<Vendors> => {
   // Create an API client using the provided version
