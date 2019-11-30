@@ -11,6 +11,17 @@ const { fetch, Request, Headers } = fetchPonyfill({ Promise });
 
 export declare type RequestMethod = 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
 
+const getDefaultHeaders = (method: RequestMethod): HeadersInit => {
+  switch (method) {
+    case 'POST':
+    case 'PUT':
+    case 'PATCH':
+      return { 'Content-Type': 'application/json', Accept: 'application/json' };
+    default:
+      return { Accept: 'application/json' };
+  }
+};
+
 export class RequestError extends Error {
   request: RequestInfo;
 
@@ -32,8 +43,10 @@ export class RequestError extends Error {
 const fetchData = <T>(r: RequestInfo): Promise<T> => (
   fetch(r).then((response: Response) => {
     if (response.ok) {
-      // 204 will cause an exception here
-      return response.json();
+      const contentType = response.headers.get('content-type');
+      const json = contentType ? contentType.indexOf('application/json') >= 0 : false;
+      // text/markdown text/html text/plain should all be treated as text
+      return json ? response.json() : response.text();
     }
     throw new RequestError(r, response);
   })
@@ -43,11 +56,11 @@ const fetchData = <T>(r: RequestInfo): Promise<T> => (
  * @param {string} uri The URI the GET request will be sent to
  * @param {QueryParams} query Optional query params object
  */
-export const get = <T>(uri: string, query?: QueryParams): Promise<T> => (
+export const get = <T>(uri: string, query?: QueryParams, headers?: HeadersInit): Promise<T> => (
   fetchData<T>(
     new Request(getURI(uri, query), {
       method: 'GET',
-      headers: new Headers({ accept: 'application/json' }),
+      headers: new Headers(headers || getDefaultHeaders('GET')),
     }),
   )
 );
@@ -57,15 +70,17 @@ export const get = <T>(uri: string, query?: QueryParams): Promise<T> => (
  * @param {PostData} data Optional {@link PostData} sent to the URI as JSON content
  * @param {QueryParams} query Optional query parameters added to the provided URI
  */
-export const post = <T>(uri: string, data?: PostData, query?: QueryParams): Promise<T> => (
-  fetchData<T>(
-    new Request(getURI(uri, query), {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
+export const post = <T>(
+  uri: string,
+  data?: PostData,
+  query?: QueryParams,
+  headers?: HeadersInit,
+): Promise<T> => (
+    fetchData<T>(
+      new Request(getURI(uri, query), {
+        method: 'POST',
+        headers: new Headers(headers || getDefaultHeaders('POST')),
+        body: serialize(data),
       }),
-      body: serialize(data),
-    }),
-  )
-);
+    )
+  );
