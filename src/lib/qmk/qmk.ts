@@ -1,4 +1,4 @@
-import keyboards, { KeyboardsResponse } from './keyboard';
+import keyboards, { KeyboardsResponse, readme } from './keyboard';
 import usb, { Vendors, Products, KeyboardsMeta } from './usb';
 
 export type API_VERSION = 'v1';
@@ -27,6 +27,17 @@ export class QMK {
    */
   keyboards = (...names: string[]): Promise<KeyboardsResponse> => (
     keyboards(`${this.url}${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
+  );
+
+  /**
+   * Get the readme file associated with the keyboard
+   * @param name The name of the keyboard
+   * ```typescript
+   * const readme = await client.readme('massdrop/alt');
+   * ```
+   */
+  readme = (name: string): Promise<string> => (
+    readme(this.url, name)
   );
 
   /**

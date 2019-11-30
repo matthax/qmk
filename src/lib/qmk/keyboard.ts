@@ -50,7 +50,19 @@ export type KeyboardsResponse = {
  * @param {...string} names Provide one or more keyboard names, or use the special "all" keyword
  */
 export const keyboards = (api: string, ...names: string[]): Promise<KeyboardsResponse> => (
-  get<KeyboardsResponse>(`${api}${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
+  get<KeyboardsResponse>(`${api}keyboards/${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
+);
+
+/**
+ * Get the readme file associated with the keyboard
+ * @param api The QMK API endpoint
+ * @param name The name of the keyboard
+ * ```typescript
+ * const altReadme = await readme('https://api.qmk.fm/v1/', 'massdrop/alt');
+ * ```
+ */
+export const readme = (api: string, name: string): Promise<string> => (
+  get<string>(`${api}/keyboards/${name}/readme`)
 );
 
 export default keyboards;
