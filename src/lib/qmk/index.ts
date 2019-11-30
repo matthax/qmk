@@ -1,5 +1,6 @@
 export * from './qmk';
 export * from './keyboard';
+export * from './usb';
 /**
  * Convert a numeric vendor or product ID to a hex representation used by QMK
  * @param n A numeric vendor ID or product ID
