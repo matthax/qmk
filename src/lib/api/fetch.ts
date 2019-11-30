@@ -44,7 +44,7 @@ const fetchData = <T>(r: RequestInfo): Promise<T> => (
   fetch(r).then((response: Response) => {
     if (response.ok) {
       const contentType = response.headers.get('content-type');
-      const json = contentType ? contentType.indexOf('application/json') >= 0 : false;
+      const json = contentType && contentType.indexOf('application/json') >= 0;
       // text/markdown text/html text/plain should all be treated as text
       return json ? response.json() : response.text();
     }

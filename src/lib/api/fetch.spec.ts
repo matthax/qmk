@@ -25,13 +25,23 @@ const simpleData: SimpleData = {
   list: ['1', '2', '3'],
 };
 
-test('simple json get', (t) => (get<SimpleGetResponse>(api('get'), simpleData).then((responseData) => {
-  t.deepEqual(responseData.args, simpleData);
-})));
+test('simple json get', (t) => (
+  get<SimpleGetResponse>(api('get'), simpleData).then((responseData) => {
+    t.deepEqual(responseData.args, simpleData);
+  })
+));
 
-test('simple json post', (t) => (post<SimplePostResponse>(api('post'), simpleData).then((responseData) => {
-  t.deepEqual(responseData.json, simpleData);
-})));
+test('simple json post', (t) => (
+  post<SimplePostResponse>(api('post'), simpleData).then((responseData) => {
+    t.deepEqual(responseData.json, simpleData);
+  })
+));
+
+test('simple text get', (t) => (
+  get<string>(api('robots.txt'), undefined, { Accept: 'text/plain' }).then((responseText) => {
+    t.is(responseText, 'User-agent: *\nDisallow: /deny\n');
+  })
+));
 
 test('4xx response code', async (t) => {
   await t.throwsAsync(get(`${api('status')}/400`), {
