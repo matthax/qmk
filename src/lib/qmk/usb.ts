@@ -8,10 +8,12 @@ export type KeyboardMeta = {
   manufacturer: string;
 };
 
+export type KeyboardsMeta = {
+  [keyboard: string]: KeyboardMeta;
+}
+
 export type Products = {
-  [productID: string]: {
-    [keyboard: string]: KeyboardMeta;
-  };
+  [productID: string]: KeyboardsMeta;
 };
 
 export type Vendors = {
