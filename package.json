@@ -1,13 +1,20 @@
 {
   "name": "qmk",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "QMK API bindings. Get information on keyboards, compile firmware and more",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/matthax/qmk",
   "license": "MIT",
-  "keywords": ["qmk","node","browser","keyboard","api","firmware"],
+  "keywords": [
+    "qmk",
+    "node",
+    "browser",
+    "keyboard",
+    "api",
+    "firmware"
+  ],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
