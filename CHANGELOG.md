@@ -3,7 +3,8 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [0.1.2](https://github.com/matthax/qmk/compare/v0.1.1...v0.1.2) (2019-11-30)
-
+ - Fix bug with keyboards endpoint
+ - Add support for getting readme files by keyboard
 
 
 ### [0.1.1](https://github.com/matthax/qmk/compare/v0.0.7...v0.1.1) (2019-11-30)
