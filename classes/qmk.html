@@ -103,6 +103,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#keyboards" class="tsd-kind-icon">keyboards</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#product" class="tsd-kind-icon">product</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#readme" class="tsd-kind-icon">readme</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#usb" class="tsd-kind-icon">usb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#vendor" class="tsd-kind-icon">vendor</a></li>
 							</ul>
@@ -195,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/qmk/qmk.ts:69</li>
+									<li>Defined in lib/qmk/qmk.ts:80</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,6 +225,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="readme" class="tsd-anchor"></a>
+					<h3>readme</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">readme<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/qmk.ts:39</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the readme file associated with the keyboard</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The name of the keyboard</p>
+											<pre><code class="language-typescript"><span class="hljs-keyword">const</span> readme = <span class="hljs-keyword">await</span> client.readme(<span class="hljs-string">'massdrop/alt'</span>);</code></pre>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="usb" class="tsd-anchor"></a>
 					<h3>usb</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -233,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/qmk/qmk.ts:40</li>
+									<li>Defined in lib/qmk/qmk.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,7 +293,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/qmk/qmk.ts:52</li>
+									<li>Defined in lib/qmk/qmk.ts:63</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,6 +342,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="qmk.html#product" class="tsd-kind-icon">product</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="qmk.html#readme" class="tsd-kind-icon">readme</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="qmk.html#usb" class="tsd-kind-icon">usb</a>
@@ -404,6 +442,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="../globals.html#post" class="tsd-kind-icon">post</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#readme" class="tsd-kind-icon">readme</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#serialize" class="tsd-kind-icon">serialize</a>
