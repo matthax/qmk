@@ -8,7 +8,7 @@ Bring the power of the open source project to your browser or node.js project. G
 ## Installation
 Using yarn (recommended):
 
-`yarn add ymk`
+`yarn add qmk`
 
 Or with npm:
 
@@ -51,6 +51,7 @@ client.keyboards('all').then(({ keyboards }) => {
   console.error(err);
 });
 ```
+Check out more usage examples in the [examples directory](examples)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
