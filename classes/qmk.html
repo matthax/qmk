@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>QMKClient | qmk</title>
+	<title>QMK | qmk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,21 +56,29 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="qmkclient.html">QMKClient</a>
+					<a href="qmk.html">QMK</a>
 				</li>
 			</ul>
-			<h1>Class QMKClient</h1>
+			<h1>Class QMK</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>QMK API client, specify a version to begin interacting with the API</p>
+						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client: QMKClient = <span class="hljs-keyword">new</span> QMKClient(<span class="hljs-string">'v1'</span>);</code></pre>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">QMKClient</span>
+						<span class="target">QMK</span>
 					</li>
 				</ul>
 			</section>
@@ -81,19 +89,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="qmkclient.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="qmk.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="qmkclient.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="qmk.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmkclient.html#keyboards" class="tsd-kind-icon">keyboards</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#keyboards" class="tsd-kind-icon">keyboards</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#product" class="tsd-kind-icon">product</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#usb" class="tsd-kind-icon">usb</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="qmk.html#vendor" class="tsd-kind-icon">vendor</a></li>
 							</ul>
 						</section>
 					</div>
@@ -105,13 +116,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new QMKClient<span class="tsd-signature-symbol">(</span>version<span class="tsd-signature-symbol">: </span><a href="../globals.html#api_version" class="tsd-signature-type">API_VERSION</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="qmkclient.html" class="tsd-signature-type">QMKClient</a></li>
+						<li class="tsd-signature tsd-kind-icon">new QMK<span class="tsd-signature-symbol">(</span>version<span class="tsd-signature-symbol">: </span><a href="../globals.html#api_version" class="tsd-signature-type">API_VERSION</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="qmk.html" class="tsd-signature-type">QMK</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/qmk.ts:51</li>
+									<li>Defined in lib/qmk/qmk.ts:15</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -120,7 +131,7 @@
 									<h5>version: <a href="../globals.html#api_version" class="tsd-signature-type">API_VERSION</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="qmkclient.html" class="tsd-signature-type">QMKClient</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="qmk.html" class="tsd-signature-type">QMK</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -133,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:51</li>
+							<li>Defined in lib/qmk/qmk.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,16 +161,121 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/qmk.ts:57</li>
+									<li>Defined in lib/qmk/qmk.ts:28</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve metadata about keyboards</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { git_hash, last_updated, keyboards } = <span class="hljs-keyword">await</span> client.keyboards(<span class="hljs-string">'massdrop/alt'</span>);</code></pre>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Provide one or more keyboard names, or use the special &quot;all&quot; keyword</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#keyboardsresponse" class="tsd-signature-type">KeyboardsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="product" class="tsd-anchor"></a>
+					<h3>product</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">product<span class="tsd-signature-symbol">(</span>vendor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, product<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#keyboardsmeta" class="tsd-signature-type">KeyboardsMeta</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/qmk.ts:69</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve keyboard metadata by product ID.
+										Product IDs can be shared among multiple keyboards.
+										As a result, an object will always be returned from this function,
+									even if there&#39;s only one matching keyboard</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> vendor = <span class="hljs-string">'0x04D8'</span>; <span class="hljs-comment">// Massdrop</span>
+<span class="hljs-keyword">const</span> product = <span class="hljs-string">'0xEED3'</span>; <span class="hljs-comment">// Alt</span>
+<span class="hljs-keyword">const</span> keyboards = <span class="hljs-keyword">await</span> client.product(vendor, product);
+<span class="hljs-built_in">console</span>.info(keyboards);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vendor: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>product: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#keyboardsmeta" class="tsd-signature-type">KeyboardsMeta</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="usb" class="tsd-anchor"></a>
+					<h3>usb</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">usb<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#vendors" class="tsd-signature-type">Vendors</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/qmk.ts:40</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve keyboard metadata by vendor and product ID</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> vendor = <span class="hljs-string">'0x04D8'</span>;
+<span class="hljs-keyword">const</span> { [vendor]: massdrop } = <span class="hljs-keyword">await</span> client.usb(<span class="hljs-string">'https://api.qmk.fm/'</span>);
+<span class="hljs-built_in">console</span>.info(massdrop);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#vendors" class="tsd-signature-type">Vendors</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="vendor" class="tsd-anchor"></a>
+					<h3>vendor</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">vendor<span class="tsd-signature-symbol">(</span>vendor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#products" class="tsd-signature-type">Products</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/qmk.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve keyboard metadata by vendor ID</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> vendor = <span class="hljs-string">'0x04D8'</span>; <span class="hljs-comment">// Massdrop</span>
+<span class="hljs-keyword">const</span> massdropKeyboards = <span class="hljs-keyword">await</span> client.vendor(vendor);
+<span class="hljs-built_in">console</span>.info(massdropKeyboards);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vendor: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#products" class="tsd-signature-type">Products</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -178,16 +294,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="qmkclient.html" class="tsd-kind-icon">QMKClient</a>
+						<a href="qmk.html" class="tsd-kind-icon">QMK</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="qmkclient.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="qmk.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="qmkclient.html#url" class="tsd-kind-icon">url</a>
+								<a href="qmk.html#url" class="tsd-kind-icon">url</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="qmkclient.html#keyboards" class="tsd-kind-icon">keyboards</a>
+								<a href="qmk.html#keyboards" class="tsd-kind-icon">keyboards</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="qmk.html#product" class="tsd-kind-icon">product</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="qmk.html#usb" class="tsd-kind-icon">usb</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="qmk.html#vendor" class="tsd-kind-icon">vendor</a>
 							</li>
 						</ul>
 					</li>
@@ -206,13 +331,16 @@
 						<a href="../globals.html#keyboard" class="tsd-kind-icon">Keyboard</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#keyboardmeta" class="tsd-kind-icon">Keyboard<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#keyboards" class="tsd-kind-icon">Keyboards</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
+						<a href="../globals.html#keyboardsmeta" class="tsd-kind-icon">Keyboards<wbr>Meta</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#keymap" class="tsd-kind-icon">Keymap</a>
+						<a href="../globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#layout" class="tsd-kind-icon">Layout</a>
@@ -222,6 +350,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#postdata" class="tsd-kind-icon">Post<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#products" class="tsd-kind-icon">Products</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#queryparam" class="tsd-kind-icon">Query<wbr>Param</a>
@@ -234,6 +365,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#requestmethod" class="tsd-kind-icon">Request<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#vendors" class="tsd-kind-icon">Vendors</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#api_root" class="tsd-kind-icon">API_<wbr>ROOT</a>
@@ -253,11 +387,20 @@
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="../globals.html#get" class="tsd-kind-icon">get</a>
 					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#getdefaultheaders" class="tsd-kind-icon">get<wbr>Default<wbr>Headers</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#geturi" class="tsd-kind-icon">getURI</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#hex" class="tsd-kind-icon">hex</a>
+					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="../globals.html#isqueryprimitive" class="tsd-kind-icon">is<wbr>Query<wbr>Primitive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#keyboards" class="tsd-kind-icon">keyboards</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="../globals.html#post" class="tsd-kind-icon">post</a>
@@ -267,6 +410,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#serializequeryparam" class="tsd-kind-icon">serialize<wbr>Query<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#usb" class="tsd-kind-icon">usb</a>
 					</li>
 				</ul>
 			</nav>

@@ -64,8 +64,7 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p> <a href="https://www.npmjs.com/package/qmk"><img src="https://img.shields.io/npm/v/qmk?style=flat-square" alt="npm"></a> <a href="https://circleci.com/gh/matthax/qmk"><img src="https://img.shields.io/circleci/build/github/matthax/qmk?style=flat-square" alt="CircleCI"></a>  <a href="https://www.npmjs.com/package/qmk"><img src="https://img.shields.io/node/v/qmk?style=flat-square" alt="node"></a> <a href="https://discord.gg/Uq7gcHh"><img src="https://img.shields.io/discord/440868230475677696?style=flat-square" alt="Discord"></a></p>
-				<p> <a href="https://circleci.com/gh/matthax/qmk"><img src="https://circleci.com/gh/matthax/qmk.svg?style=svg" alt="CircleCI"></a></p>
+				<p> <a href="https://www.npmjs.com/package/qmk"><img src="https://img.shields.io/npm/v/qmk?style=flat-square" alt="npm"></a> <a href="https://circleci.com/gh/matthax/qmk"><img src="https://img.shields.io/circleci/build/github/matthax/qmk?style=flat-square" alt="CircleCI"></a>   <a href="https://codecov.io/gh/matthax/qmk"><img src="https://img.shields.io/codecov/c/github/matthax/qmk?style=flat-square" alt="CodeCov"></a> <a href="https://www.npmjs.com/package/qmk"><img src="https://img.shields.io/node/v/qmk?style=flat-square" alt="node"></a> <a href="https://discord.gg/Uq7gcHh"><img src="https://img.shields.io/discord/440868230475677696?style=flat-square" alt="Discord"></a></p>
 				<a href="#qmkjs" id="qmkjs" style="color: inherit; text-decoration: none;">
 					<h1>QMK.js</h1>
 				</a>
@@ -74,7 +73,7 @@
 					<h2>Installation</h2>
 				</a>
 				<p>Using yarn (recommended):</p>
-				<p><code>yarn add ymk</code></p>
+				<p><code>yarn add qmk</code></p>
 				<p>Or with npm:</p>
 				<p><code>npm install --save qmk</code></p>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
@@ -107,6 +106,7 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 }).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.error(err);
 });</code></pre>
+				<p>Check out more usage examples in the <a href="examples">examples directory</a></p>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>
@@ -129,7 +129,7 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/qmkclient.html" class="tsd-kind-icon">QMKClient</a>
+						<a href="classes/qmk.html" class="tsd-kind-icon">QMK</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/requesterror.html" class="tsd-kind-icon">Request<wbr>Error</a>
@@ -144,13 +144,16 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 						<a href="globals.html#keyboard" class="tsd-kind-icon">Keyboard</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#keyboardmeta" class="tsd-kind-icon">Keyboard<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#keyboards" class="tsd-kind-icon">Keyboards</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
+						<a href="globals.html#keyboardsmeta" class="tsd-kind-icon">Keyboards<wbr>Meta</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#keymap" class="tsd-kind-icon">Keymap</a>
+						<a href="globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#layout" class="tsd-kind-icon">Layout</a>
@@ -160,6 +163,9 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#postdata" class="tsd-kind-icon">Post<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#products" class="tsd-kind-icon">Products</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#queryparam" class="tsd-kind-icon">Query<wbr>Param</a>
@@ -172,6 +178,9 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#requestmethod" class="tsd-kind-icon">Request<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#vendors" class="tsd-kind-icon">Vendors</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#api_root" class="tsd-kind-icon">API_<wbr>ROOT</a>
@@ -191,11 +200,20 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#get" class="tsd-kind-icon">get</a>
 					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#getdefaultheaders" class="tsd-kind-icon">get<wbr>Default<wbr>Headers</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#geturi" class="tsd-kind-icon">getURI</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hex" class="tsd-kind-icon">hex</a>
+					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#isqueryprimitive" class="tsd-kind-icon">is<wbr>Query<wbr>Primitive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#keyboards" class="tsd-kind-icon">keyboards</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#post" class="tsd-kind-icon">post</a>
@@ -205,6 +223,9 @@ client.keyboards(<span class="hljs-string">'all'</span>).then(<span class="hljs-
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#serializequeryparam" class="tsd-kind-icon">serialize<wbr>Query<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#usb" class="tsd-kind-icon">usb</a>
 					</li>
 				</ul>
 			</nav>

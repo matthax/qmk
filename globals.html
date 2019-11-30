@@ -70,7 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/qmkclient.html" class="tsd-kind-icon">QMKClient</a></li>
+								<li class="tsd-kind-class"><a href="classes/qmk.html" class="tsd-kind-icon">QMK</a></li>
 								<li class="tsd-kind-class"><a href="classes/requesterror.html" class="tsd-kind-icon">Request<wbr>Error</a></li>
 							</ul>
 						</section>
@@ -80,16 +80,19 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#api_version" class="tsd-kind-icon">API_<wbr>VERSION</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#key" class="tsd-kind-icon">Key</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#keyboard" class="tsd-kind-icon">Keyboard</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#keyboardmeta" class="tsd-kind-icon">Keyboard<wbr>Meta</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#keyboards" class="tsd-kind-icon">Keyboards</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#keyboardsmeta" class="tsd-kind-icon">Keyboards<wbr>Meta</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a></li>
-								<li class="tsd-kind-type-alias"><a href="globals.html#keymap" class="tsd-kind-icon">Keymap</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#layout" class="tsd-kind-icon">Layout</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#layouts" class="tsd-kind-icon">Layouts</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#postdata" class="tsd-kind-icon">Post<wbr>Data</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#products" class="tsd-kind-icon">Products</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#queryparam" class="tsd-kind-icon">Query<wbr>Param</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#queryparams" class="tsd-kind-icon">Query<wbr>Params</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#queryprimitive" class="tsd-kind-icon">Query<wbr>Primitive</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#requestmethod" class="tsd-kind-icon">Request<wbr>Method</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#vendors" class="tsd-kind-icon">Vendors</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -106,11 +109,15 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-has-type-parameter tsd-is-not-exported"><a href="globals.html#fetchdata" class="tsd-kind-icon">fetch<wbr>Data</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#getdefaultheaders" class="tsd-kind-icon">get<wbr>Default<wbr>Headers</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#geturi" class="tsd-kind-icon">getURI</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#hex" class="tsd-kind-icon">hex</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#isqueryprimitive" class="tsd-kind-icon">is<wbr>Query<wbr>Primitive</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#keyboards" class="tsd-kind-icon">keyboards</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#post" class="tsd-kind-icon">post</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#serialize" class="tsd-kind-icon">serialize</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#serializequeryparam" class="tsd-kind-icon">serialize<wbr>Query<wbr>Param</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#usb" class="tsd-kind-icon">usb</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">API_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"v1"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:3</li>
+							<li>Defined in lib/qmk/qmk.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -134,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:5</li>
+							<li>Defined in lib/qmk/keyboard.ts:3</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -158,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">Keyboard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:17</li>
+							<li>Defined in lib/qmk/keyboard.ts:15</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -225,12 +232,42 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="keyboardmeta" class="tsd-anchor"></a>
+					<h3>Keyboard<wbr>Meta</h3>
+					<div class="tsd-signature tsd-kind-icon">Keyboard<wbr>Meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/qmk/usb.ts:3</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>description<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>keyboard<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>manufacturer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>product_<wbr>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>vendor_<wbr>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="keyboards" class="tsd-anchor"></a>
 					<h3>Keyboards</h3>
 					<div class="tsd-signature tsd-kind-icon">Keyboards<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:38</li>
+							<li>Defined in lib/qmk/keyboard.ts:36</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -243,12 +280,30 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="keyboardsmeta" class="tsd-anchor"></a>
+					<h3>Keyboards<wbr>Meta</h3>
+					<div class="tsd-signature tsd-kind-icon">Keyboards<wbr>Meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/qmk/usb.ts:11</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>keyboard: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="globals.html#keyboardmeta" class="tsd-signature-type">KeyboardMeta</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="keyboardsresponse" class="tsd-anchor"></a>
 					<h3>Keyboards<wbr>Response</h3>
 					<div class="tsd-signature tsd-kind-icon">Keyboards<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:41</li>
+							<li>Defined in lib/qmk/keyboard.ts:39</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -267,22 +322,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="keymap" class="tsd-anchor"></a>
-					<h3>Keymap</h3>
-					<div class="tsd-signature tsd-kind-icon">Keymap<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in lib/qmk.ts:4</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="layout" class="tsd-anchor"></a>
 					<h3>Layout</h3>
 					<div class="tsd-signature tsd-kind-icon">Layout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:10</li>
+							<li>Defined in lib/qmk/keyboard.ts:8</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -303,7 +348,7 @@
 					<div class="tsd-signature tsd-kind-icon">Layouts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:14</li>
+							<li>Defined in lib/qmk/keyboard.ts:12</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -324,6 +369,24 @@
 							<li>Defined in lib/api/utils.ts:6</li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="products" class="tsd-anchor"></a>
+					<h3>Products</h3>
+					<div class="tsd-signature tsd-kind-icon">Products<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/qmk/usb.ts:15</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>productID: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="globals.html#keyboardsmeta" class="tsd-signature-type">KeyboardsMeta</a></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="queryparam" class="tsd-anchor"></a>
@@ -373,6 +436,24 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="vendors" class="tsd-anchor"></a>
+					<h3>Vendors</h3>
+					<div class="tsd-signature tsd-kind-icon">Vendors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/qmk/usb.ts:19</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>vendorID: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="globals.html#products" class="tsd-signature-type">Products</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
@@ -382,7 +463,7 @@
 					<div class="tsd-signature tsd-kind-icon">API_<wbr>ROOT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://api.qmk.fm/"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://api.qmk.fm/&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in lib/qmk.ts:47</li>
+							<li>Defined in lib/qmk/qmk.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -490,7 +571,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/api/fetch.ts:32</li>
+									<li>Defined in lib/api/fetch.ts:43</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -525,13 +606,13 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> get</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, query<span class="tsd-signature-symbol">?: </span><a href="globals.html#queryparams" class="tsd-signature-type">QueryParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, query<span class="tsd-signature-symbol">?: </span><a href="globals.html#queryparams" class="tsd-signature-type">QueryParams</a>, headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HeadersInit</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/api/fetch.ts:46</li>
+									<li>Defined in lib/api/fetch.ts:59</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -563,8 +644,34 @@
 										</div>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> headers: <span class="tsd-signature-type">HeadersInit</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
+					<a name="getdefaultheaders" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Default<wbr>Headers</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Headers<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><a href="globals.html#requestmethod" class="tsd-signature-type">RequestMethod</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HeadersInit</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/api/fetch.ts:14</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>method: <a href="globals.html#requestmethod" class="tsd-signature-type">RequestMethod</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HeadersInit</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -594,6 +701,40 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="hex" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> hex</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">hex<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/index.ts:9</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert a numeric vendor or product ID to a hex representation used by QMK</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A numeric vendor ID or product ID</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Hex string in the format 0x0000</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
 					<a name="isqueryprimitive" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Query<wbr>Primitive</h3>
@@ -617,17 +758,59 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-					<a name="post" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> post</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">post&lt;T&gt;<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><a href="globals.html#postdata" class="tsd-signature-type">PostData</a>, query<span class="tsd-signature-symbol">?: </span><a href="globals.html#queryparams" class="tsd-signature-type">QueryParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="keyboards" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> keyboards</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">keyboards<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, <span class="tsd-signature-symbol">...</span>names<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#keyboardsresponse" class="tsd-signature-type">KeyboardsResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in lib/api/fetch.ts:60</li>
+									<li>Defined in lib/qmk/keyboard.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve metadata about keyboards</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> { git_hash, last_updated, keyboards } = <span class="hljs-keyword">await</span> keyboards(<span class="hljs-string">'https://api.qmk.fm/v1/'</span>, <span class="hljs-string">'massdrop/alt'</span>);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>api: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The QMK API url</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>names: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Provide one or more keyboard names, or use the special &quot;all&quot; keyword</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#keyboardsresponse" class="tsd-signature-type">KeyboardsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+					<a name="post" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> post</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">post&lt;T&gt;<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><a href="globals.html#postdata" class="tsd-signature-type">PostData</a>, query<span class="tsd-signature-symbol">?: </span><a href="globals.html#queryparams" class="tsd-signature-type">QueryParams</a>, headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HeadersInit</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/api/fetch.ts:73</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -666,6 +849,9 @@
 											<p>Optional query parameters added to the provided URI</p>
 										</div>
 									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> headers: <span class="tsd-signature-type">HeadersInit</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -721,6 +907,42 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="usb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> usb</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">usb<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#vendors" class="tsd-signature-type">Vendors</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/qmk/usb.ts:32</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve keyboard metadata by vendor and product ID</p>
+									<pre><code class="language-typescript"><span class="hljs-keyword">const</span> vendor = <span class="hljs-string">'0x04D8'</span>;
+<span class="hljs-keyword">const</span> { [vendor]: massdrop } = <span class="hljs-keyword">await</span> usb(<span class="hljs-string">'https://api.qmk.fm/v1/'</span>);
+<span class="hljs-built_in">console</span>.info(massdrop);</code></pre>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>api: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The QMK API url</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#vendors" class="tsd-signature-type">Vendors</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -734,7 +956,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/qmkclient.html" class="tsd-kind-icon">QMKClient</a>
+						<a href="classes/qmk.html" class="tsd-kind-icon">QMK</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/requesterror.html" class="tsd-kind-icon">Request<wbr>Error</a>
@@ -749,13 +971,16 @@
 						<a href="globals.html#keyboard" class="tsd-kind-icon">Keyboard</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#keyboardmeta" class="tsd-kind-icon">Keyboard<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#keyboards" class="tsd-kind-icon">Keyboards</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
+						<a href="globals.html#keyboardsmeta" class="tsd-kind-icon">Keyboards<wbr>Meta</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#keymap" class="tsd-kind-icon">Keymap</a>
+						<a href="globals.html#keyboardsresponse" class="tsd-kind-icon">Keyboards<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#layout" class="tsd-kind-icon">Layout</a>
@@ -765,6 +990,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#postdata" class="tsd-kind-icon">Post<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#products" class="tsd-kind-icon">Products</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#queryparam" class="tsd-kind-icon">Query<wbr>Param</a>
@@ -777,6 +1005,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#requestmethod" class="tsd-kind-icon">Request<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#vendors" class="tsd-kind-icon">Vendors</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#api_root" class="tsd-kind-icon">API_<wbr>ROOT</a>
@@ -796,11 +1027,20 @@
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#get" class="tsd-kind-icon">get</a>
 					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#getdefaultheaders" class="tsd-kind-icon">get<wbr>Default<wbr>Headers</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#geturi" class="tsd-kind-icon">getURI</a>
 					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hex" class="tsd-kind-icon">hex</a>
+					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#isqueryprimitive" class="tsd-kind-icon">is<wbr>Query<wbr>Primitive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#keyboards" class="tsd-kind-icon">keyboards</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#post" class="tsd-kind-icon">post</a>
@@ -810,6 +1050,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#serializequeryparam" class="tsd-kind-icon">serialize<wbr>Query<wbr>Param</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#usb" class="tsd-kind-icon">usb</a>
 					</li>
 				</ul>
 			</nav>
