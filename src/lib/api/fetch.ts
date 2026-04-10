@@ -1,12 +1,9 @@
-import fetchPonyfill from 'fetch-ponyfill';
 import {
   serialize,
   getURI,
   QueryParams,
   PostData,
 } from './utils';
-
-const { fetch, Request, Headers } = fetchPonyfill({ Promise });
 
 
 export declare type RequestMethod = 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS';
