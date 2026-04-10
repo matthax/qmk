@@ -12,17 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2.2.0
         with:
-          node-version: 24
-          cache: npm
+          bun-version: latest
 
-      - run: npm ci
+      - run: bun install
 
-      - run: npm test
+      - run: bun run test
 
       - name: Generate lcov report
-        run: npm run cov:send
+        run: bun run cov:send
 
       - uses: codecov/codecov-action@v6
         with:

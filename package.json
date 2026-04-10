@@ -35,10 +35,10 @@
     "doc:json": "typedoc --exclude \"**/*.spec.ts\" --json build/docs/typedoc.json src/index.ts",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
-    "reset": "git clean -dfx && git reset --hard && yarn",
+    "reset": "git clean -dfx && git reset --hard && bun install",
     "clean": "trash build test",
     "prepare-release": "run-s reset test cov:check doc:html version doc:publish release",
-    "release": "yarn publish",
+    "release": "bun publish",
     "preinstall": "echo \"⌨️ let's get clacking\""
   },
   "scripts-info": {
@@ -56,7 +56,8 @@
     "release": "Publish docs and update the package registry"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24",
+    "bun": ">=1.0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -67,15 +68,15 @@
     "ava": "^7.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^10.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.32.0",
     "gh-pages": "^6.3.0",
+    "globals": "^17.4.0",
     "npm-run-all2": "^8.0.4",
     "nyc": "^18.0.0",
     "open-cli": "^9.0.0",
     "standard-version": "^9.5.0",
     "trash-cli": "^7.2.0",
     "typedoc": "^0.28.18",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   },
   "ava": {
