@@ -1,6 +1,6 @@
 # QMK.js
 
-[![npm][shield-npm]][package] [![node][shield-node]][package]
+[![npm][shield-npm]][package] [![node][shield-node]][package] [![CI][shield-ci]][ci] [![docs][shield-docs]][docs]
 
 JavaScript/TypeScript bindings for the [QMK API][qmk-api]. Fetch keyboard metadata, layouts, firmware, and more from the browser or Node.js.
 
@@ -114,6 +114,17 @@ await client.vendor('0x04D8');
 ```
 
 
+## Documentation
+
+Full API docs are published at [matthax.github.io/qmk][docs] and updated automatically on every push to `master`.
+
+To build locally:
+
+```sh
+bun run doc:build
+# opens docs/index.html
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes please open an issue first.
@@ -130,5 +141,9 @@ bun run --filter '@qmk/core' test
 
 [qmk-api]: https://docs.qmk.fm/api_docs
 [package]: https://www.npmjs.com/package/@qmk/core
+[docs]: https://matthax.github.io/qmk
+[ci]: https://github.com/matthax/qmk/actions/workflows/ci.yml
 [shield-npm]: https://img.shields.io/npm/v/@qmk/core?style=flat-square
 [shield-node]: https://img.shields.io/node/v/@qmk/core?style=flat-square
+[shield-ci]: https://img.shields.io/github/actions/workflow/status/matthax/qmk/ci.yml?style=flat-square&label=CI
+[shield-docs]: https://img.shields.io/badge/docs-matthax.github.io%2Fqmk-blue?style=flat-square

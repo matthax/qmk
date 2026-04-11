@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["packages/core/src/index.ts"],
+  "tsconfig": "packages/core/tsconfig.json",
+  "out": "docs",
+  "name": "QMK.js",
+  "readme": "README.md",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "navigationLinks": {
+    "GitHub": "https://github.com/matthax/qmk",
+    "npm": "https://www.npmjs.com/package/@qmk/core"
+  }
+}

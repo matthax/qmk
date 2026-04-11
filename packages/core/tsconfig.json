@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "es2022",
     "outDir": "build/main",
     "rootDir": "src",
     "moduleResolution": "node",
@@ -14,7 +14,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "lib": ["es2019", "dom"],
+    "lib": ["es2022", "dom"],
     "types": [],
     "typeRoots": ["../../node_modules/@types"]
   },

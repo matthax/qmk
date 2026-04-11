@@ -19,10 +19,3 @@ jobs:
       - run: bun install
 
       - run: bun run test
-
-      - name: Generate lcov report
-        run: bun run cov:send
-
-      - uses: codecov/codecov-action@v6
-        with:
-          files: ./coverage/lcov.info

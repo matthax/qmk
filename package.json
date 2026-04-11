@@ -21,7 +21,9 @@
     "test": "bun run --filter '@qmk/*' test",
     "clean": "bun run --filter '*' clean",
     "fix": "eslint --fix \"packages/*/src/**/*.ts\" \"examples/**/*.ts\"",
-    "lint": "eslint \"packages/*/src/**/*.ts\" \"examples/**/*.ts\""
+    "lint": "eslint \"packages/*/src/**/*.ts\" \"examples/**/*.ts\"",
+    "doc:build": "typedoc",
+    "doc": "bun run doc:build && gh-pages -d docs"
   },
   "engines": {
     "node": ">=24",
