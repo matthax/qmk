@@ -37,7 +37,7 @@
     "types": [],
     "typeRoots": ["node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "examples/**/*.ts"],
+  "include": ["packages/**/*.ts", "examples/**/*.ts"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }
