@@ -90,6 +90,30 @@ All methods are on the `QMK` class and cache results after the first fetch.
 | `vendor(vid)` | `Products \| undefined` | All products for a vendor ID |
 | `product(vid, pid)` | `KeyboardsMeta \| undefined` | Keyboards matching a vendor + product ID |
 
+## Running in the REPL
+
+Bun's REPL supports TypeScript out of the box, so you can explore the API interactively.
+
+```sh
+bun repl
+```
+
+```typescript
+const { default: QMK } = await import('@qmk/core');
+const client = new QMK();
+
+// Look up a keyboard
+await client.keyboard('crkbd/rev1');
+
+// List all keyboard names
+const { keyboards } = await client.keyboards();
+Object.keys(keyboards).length;
+
+// USB lookup
+await client.vendor('0x04D8');
+```
+
+
 ## Contributing
 
 Pull requests are welcome. For major changes please open an issue first.
