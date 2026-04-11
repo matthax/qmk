@@ -5,11 +5,11 @@ import QMK, { Keyboard } from '@qmk/core';
 // Fetch a single keyboard by name
 export const keyboardExample = async (): Promise<Keyboard | undefined> => {
   const client = new QMK();
-  const kb = await client.keyboard('drop/alt/v2');
-  if (kb) {
-    console.info(`${kb.keyboard_name} has ${Object.keys(kb.layouts).length} layouts`);
+  const keeb = await client.keyboard('drop/alt/v2');
+  if (keeb) {
+    console.info(`${keeb.keyboard_name} has ${Object.keys(keeb.layouts).length} layouts`);
   }
-  return kb;
+  return keeb;
 };
 
 // Fetch just the list of keyboard names (fast, ~77KB)
@@ -25,8 +25,8 @@ export const keyboardNamesExample = async (): Promise<string[]> => {
 export const keyboardsDetailedExample = async (): Promise<Keyboard[]> => {
   const client = new QMK();
   const { keyboards } = await client.keyboards({ detailed: true });
-  return Object.values(keyboards).map((kb) => {
-    console.info(`${kb.keyboard_name} has ${Object.keys(kb.layouts).length} layouts`);
-    return kb;
+  return Object.values(keyboards).map((keeb) => {
+    console.info(`${keeb.keyboard_name} has ${Object.keys(keeb.layouts).length} layouts`);
+    return keeb;
   });
 };

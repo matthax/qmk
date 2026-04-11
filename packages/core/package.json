@@ -1,7 +1,7 @@
 {
   "name": "@qmk/core",
   "version": "0.1.2",
-  "description": "QMK API bindings — browser-safe keyboard and firmware fetching",
+  "description": "QMK API Core Bindings",
   "main": "build/main/index.js",
   "module": "build/module/index.js",
   "typings": "build/main/index.d.ts",

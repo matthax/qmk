@@ -1,7 +1,7 @@
 {
-  "name": "@qmk/node",
+  "name": "@qmk/editor",
   "version": "0.1.2",
-  "description": "QMK Node/Electron extensions — filesystem, USB HID, local builds",
+  "description": "QMK Editor",
   "main": "build/main/index.js",
   "module": "build/module/index.js",
   "typings": "build/main/index.d.ts",

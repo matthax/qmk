@@ -8,8 +8,8 @@ JavaScript/TypeScript bindings for the [QMK API][qmk-api]. Fetch keyboard metada
 
 | Package | Description |
 | --- | --- |
-| [`@qmk/core`](packages/core) | Browser-safe keyboard and firmware fetching |
-| [`@qmk/node`](packages/node) | (Active Development) Node/Electron extensions (filesystem, USB HID in progress) |
+| [`@qmk/core`](packages/core) | Basic keyboard and firmware fetching, USB HID |
+| [`@qmk/node`](packages/editor) | (Active Development) Node/Electron extensions |
 
 ## Installation
 
