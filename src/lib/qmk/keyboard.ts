@@ -1,111 +1,145 @@
 import { get } from '../api';
 
-export type Key = {
-  y: number;
-  x: number;
-  label: string;
+export const KEYBOARDS_ROOT = 'https://keyboards.qmk.fm/v1/';
+
+export type USB = {
+  vid: string;
+  pid: string;
+  device_version: string;
 };
+
+export type Key = {
+  x: number;
+  y: number;
+  label?: string;
+  w?: number;
+  h?: number;
+  r?: number;
+  rx?: number;
+  ry?: number;
+  x2?: number;
+  y2?: number;
+  w2?: number;
+  h2?: number;
+};
+
 export type Layout = {
   key_count: number;
   layout: Key[];
 };
+
 export type Layouts = {
   [name: string]: Layout;
 };
+
 export type Keyboard = {
-  platform: string;
-  width: number;
+  keyboard_name: string;
+  keyboard_folder: string;
   manufacturer?: string;
   maintainer: string;
-  keymaps: string[];
-  vendor_id?: string | number;
-  description: string;
-  readme: boolean;
-  identifier: string;
-  bootloader: string;
-  layouts: Layouts;
-  processor_type: string;
   url: string;
-  keyboard_folder: string;
-  height: number;
-  processor: string;
-  device_ver: string;
-  product_id?: string | number;
-  keyboard_name: string;
+  usb?: USB;
+  layouts: Layouts;
+  keymaps: Record<string, unknown>;
+  features?: Record<string, boolean>;
+  bootloader?: string;
+  processor?: string;
+  processor_type?: string;
+  platform?: string;
+  platform_key?: string;
+  protocol?: string;
+  diode_direction?: string;
+  development_board?: string;
+  pin_compatible?: string;
+  community_layouts?: string[];
+  layout_aliases?: Record<string, string>;
+  matrix_size?: { cols: number; rows: number };
+  parse_errors?: string[];
+  parse_warnings?: string[];
 };
-export type Keyboards = {
-  [name: string]: Keyboard;
+
+/**
+ * Dictionary of keyboards. T is `Keyboard` when full data is present,
+ * `undefined` when only names are available.
+ */
+export type KeyboardsResponse<T = undefined> = {
+  last_updated?: string;
+  keyboards: Record<string, T>;
 };
-export type KeyboardsResponse = {
-  git_hash?: string;
+
+export type KeyboardAlias = {
+  target: string;
+};
+
+export type KeyboardListResponse = {
   last_updated: string;
-  keyboards: Keyboards;
+  keyboards: string[];
+  keyboard_aliases?: Record<string, KeyboardAlias>;
 };
-// Keymap response types
+
+// Keymap types
 export type Layer = string[];
 export type Layers = Layer[];
 export type Keymap = {
-  keyboard_name: string;
-  keymap_folder: string;
-  keymap_name: string;
+  keyboard: string;
+  keymap: string;
+  layout: string;
   layers: Layers;
 };
-export type Keymaps = {
-  [keymap: string]: Keymap;
-};
-export type KeymapKeyboard = Keyboard & { keymaps: Keymaps };
-export type KeymapKeyboards = {
-  [name: string]: KeymapKeyboard;
-}
 export type KeymapResponse = {
-  git_hash: string;
-  last_updated: string;
-  keyboards: KeymapKeyboards;
-}
-
-
-/**
- * Retrieve metadata about keyboards
- * ```typescript
- * const { git_hash, last_updated, keyboards } = await keyboards('https://api.qmk.fm/v1/', 'massdrop/alt');
- * ```
- * @param {string} api The QMK API url
- * @param {...string} names Provide one or more keyboard names, or use the special "all" keyword
- */
-export const keyboards = (api: string, ...names: string[]): Promise<KeyboardsResponse> => (
-  get<KeyboardsResponse>(`${api}keyboards/${names.indexOf('all') >= 0 ? 'all' : names.map((name) => encodeURI(name)).join(',')}`)
-);
+  last_updated?: string;
+  keyboards: {
+    [name: string]: {
+      keymaps: {
+        [keymap: string]: Keymap;
+      };
+    };
+  };
+};
 
 /**
- * Get the readme file associated with the keyboard
- * @param api The QMK API endpoint
- * @param name The name of the keyboard
+ * Retrieve metadata for a specific keyboard
  * ```typescript
- * const altReadme = await readme('https://api.qmk.fm/v1/', 'massdrop/alt');
+ * const { keyboards } = await keyboard('crkbd/rev1');
  * ```
  */
-export const readme = (api: string, name: string): Promise<string> => (
-  get<string>(`${api}/keyboards/${name}/readme`, undefined, { Accept: 'text/markdown' })
-);
+export const keyboard = (name: string): Promise<KeyboardsResponse<Keyboard>> =>
+  get<KeyboardsResponse<Keyboard>>(`${KEYBOARDS_ROOT}keyboards/${encodeURI(name)}/info.json`);
 
 /**
- * Get the keymap data associated with the provided keyboard and keymap name
- * @param api The QMK API endpoint
- * @param keyboard The name of the keyboard
- * @param keymap The name of the keymap
+ * Retrieve metadata for all keyboards (~28MB download)
  * ```typescript
- * const keyboardName = 'handwired/promethium';
- * const keymapName = 'default';
- * const { keyboards } = await keymaps('https://api.qmk.fm/v1/', keyboardName, keymapName);
- * const keyboard = keyboards[keyboardName]
- * // Get the keymap for the keyboard
- * const { keymaps: { [keymapName]: keymap } } = keyboard;
- * console.info(`${keymap.keyboard_name} has ${keymap.layers.length} layers
- * in the ${keymap.keymap_name} keymap`);
+ * const { keyboards } = await keyboards();
  * ```
  */
-export const keymaps = (api: string, keyboard: string, keymap: string): Promise<string> => (
-  get<string>(`${api}/keyboards/${keyboard}/keymaps/${keymap}`)
-);
+export const keyboards = (): Promise<KeyboardsResponse<Keyboard>> =>
+  get<KeyboardsResponse<Keyboard>>(`${KEYBOARDS_ROOT}keyboards.json`);
 
-export default keyboards;
+/**
+ * Retrieve the list of all keyboard names and aliases
+ * ```typescript
+ * const { keyboards } = await names();
+ * ```
+ */
+export const names = (): Promise<KeyboardListResponse> =>
+  get<KeyboardListResponse>(`${KEYBOARDS_ROOT}keyboard_list.json`);
+
+/**
+ * Get the readme for a keyboard
+ * ```typescript
+ * const md = await readme('crkbd/rev1');
+ * ```
+ */
+export const readme = (name: string): Promise<string> =>
+  get<string>(`${KEYBOARDS_ROOT}keyboards/${encodeURI(name)}/readme.md`, undefined, { Accept: 'text/markdown' });
+
+/**
+ * Get keymap data for a keyboard
+ * ```typescript
+ * const { keyboards } = await keymaps('crkbd/rev1', 'default');
+ * ```
+ */
+export const keymaps = (name: string, keymap: string): Promise<KeymapResponse> =>
+  get<KeymapResponse>(`${KEYBOARDS_ROOT}keyboards/${encodeURI(name)}/keymaps/${encodeURI(keymap)}/keymap.json`);
+
+export default keyboard;

@@ -1,28 +1,31 @@
 /* eslint-disable no-console */
 import QMK, { Keyboard } from '../../src';
 
-export const keyboardExample = async (): Promise<Keyboard> => {
-  // Create an API client using the provided version
-  const client = new QMK('v1');
-  const keyboardName = 'massdrop/alt';
-
-  // Fetch keyboard metadata
-  const { keyboards } = await client.keyboards(keyboardName);
-  // The "keyboards" call always returns a dictionary of keyboards
-  // So we keep keyboardName to reference it in the response body
-  const keyboard: Keyboard = keyboards[keyboardName];
-  console.info(`${keyboard.keyboard_name} has ${Object.keys(keyboard.layouts).length} layouts`);
-  return keyboard;
+// Fetch a single keyboard by name
+export const keyboardExample = async (): Promise<Keyboard | undefined> => {
+  const client = new QMK();
+  const kb = await client.keyboard('drop/alt/v2');
+  if (kb) {
+    console.info(`${kb.keyboard_name} has ${Object.keys(kb.layouts).length} layouts`);
+  }
+  return kb;
 };
 
-export const keyboardsExample = async (): Promise<Keyboard[]> => {
-  // Create an API client using the provided version
-  const client = new QMK('v1');
+// Fetch just the list of keyboard names (fast, ~77KB)
+export const keyboardNamesExample = async (): Promise<string[]> => {
+  const client = new QMK();
+  const { keyboards } = await client.keyboards();
+  const names = Object.keys(keyboards);
+  console.info(`${names.length} keyboards available`);
+  return names;
+};
 
-  // Fetch keyboard metadata
-  const { keyboards } = await client.keyboards('all');
-  return Object.values(keyboards).map((keyboard) => {
-    console.info(`${keyboard.keyboard_name} has ${Object.keys(keyboard.layouts).length} layouts`);
-    return keyboard;
+// Fetch all keyboards with full metadata (~28MB)
+export const keyboardsDetailedExample = async (): Promise<Keyboard[]> => {
+  const client = new QMK();
+  const { keyboards } = await client.keyboards({ detailed: true });
+  return Object.values(keyboards).map((kb) => {
+    console.info(`${kb.keyboard_name} has ${Object.keys(kb.layouts).length} layouts`);
+    return kb;
   });
 };

@@ -59,7 +59,9 @@
     "node": ">=24",
     "bun": ">=1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^2.1.101"
+  },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
@@ -75,8 +77,8 @@
     "open-cli": "^9.0.0",
     "standard-version": "^9.5.0",
     "trash-cli": "^7.2.0",
-    "typedoc": "^0.28.18",
     "tsx": "^4.21.0",
+    "typedoc": "^0.28.18",
     "typescript": "^6.0.2"
   },
   "ava": {
