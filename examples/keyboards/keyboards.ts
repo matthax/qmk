@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import QMK, { Keyboard } from '../../src';
+import QMK, { Keyboard } from '@qmk/core';
+
 
 // Fetch a single keyboard by name
 export const keyboardExample = async (): Promise<Keyboard | undefined> => {

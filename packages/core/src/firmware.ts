@@ -1,4 +1,4 @@
-import { get } from '../api';
+import { get } from './api';
 
 export const FIRMWARE_ROOT = 'https://ci.qmk.fm/master/latest/';
 

@@ -1,11 +1,8 @@
 /* eslint-disable no-console */
-import QMK, { Vendors, Products, KeyboardMeta } from '../../src';
+import QMK, { Vendors, Products, KeyboardMeta } from '@qmk/core';
 
 export const vendorsExample = (): Promise<Vendors> => {
-  // Create an API client using the provided version
-  const client = new QMK('v1');
-
-  // Fetch keyboard metadata
+  const client = new QMK();
   return client.usb().then((vendors) => {
     const vendorIDs = Object.keys(vendors);
     console.info(`Retreived ${vendorIDs.length} vendors`);
@@ -14,9 +11,7 @@ export const vendorsExample = (): Promise<Vendors> => {
 };
 
 export const vendorExample = async (): Promise<Products> => {
-  // Create an API client using the provided version
-  const client = new QMK('v1');
-
+  const client = new QMK();
   const vendor = '0x04D8'; // Massdrop
   const massdropKeyboards = await client.vendor(vendor);
   if (!massdropKeyboards) {
@@ -27,7 +22,7 @@ export const vendorExample = async (): Promise<Products> => {
 };
 
 export const keyboardsMetadata = async (): Promise<KeyboardMeta[]> => {
-  const client = new QMK('v1');
+  const client = new QMK();
   const vendor = '0x04D8'; // Massdrop
   const product = '0xEED3'; // Alt
   const keyboards = await client.product(vendor, product);

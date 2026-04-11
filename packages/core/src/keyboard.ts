@@ -1,4 +1,4 @@
-import { get } from '../api';
+import { get } from './api';
 
 export const KEYBOARDS_ROOT = 'https://keyboards.qmk.fm/v1/';
 

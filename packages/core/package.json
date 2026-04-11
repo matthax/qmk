@@ -1,0 +1,45 @@
+{
+  "name": "@qmk/core",
+  "version": "0.1.2",
+  "description": "QMK API bindings — browser-safe keyboard and firmware fetching",
+  "main": "build/main/index.js",
+  "module": "build/module/index.js",
+  "typings": "build/main/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/module/index.js",
+      "require": "./build/main/index.js",
+      "types": "./build/main/index.d.ts"
+    }
+  },
+  "files": ["build/"],
+  "repository": "https://github.com/matthax/qmk",
+  "license": "MIT",
+  "scripts": {
+    "build": "run-p build:main build:module",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+    "clean": "trash build",
+    "test": "run-s build test:unit",
+    "test:unit": "nyc --silent ava"
+  },
+  "engines": {
+    "node": ">=24",
+    "bun": ">=1.0"
+  },
+  "ava": {
+    "failFast": true,
+    "files": [
+      "build/main/**/*.spec.js"
+    ],
+    "sources": [
+      "build/main/**/*.js"
+    ]
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  }
+}

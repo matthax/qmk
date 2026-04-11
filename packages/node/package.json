@@ -1,0 +1,32 @@
+{
+  "name": "@qmk/node",
+  "version": "0.1.2",
+  "description": "QMK Node/Electron extensions — filesystem, USB HID, local builds",
+  "main": "build/main/index.js",
+  "module": "build/module/index.js",
+  "typings": "build/main/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/module/index.js",
+      "require": "./build/main/index.js",
+      "types": "./build/main/index.d.ts"
+    }
+  },
+  "files": ["build/"],
+  "repository": "https://github.com/matthax/qmk",
+  "license": "MIT",
+  "scripts": {
+    "build": "run-p build:main build:module",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+    "clean": "trash build",
+    "test": "echo \"no tests yet\""
+  },
+  "engines": {
+    "node": ">=24",
+    "bun": ">=1.0"
+  },
+  "dependencies": {
+    "@qmk/core": "workspace:*"
+  }
+}

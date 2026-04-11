@@ -1,4 +1,4 @@
-import { get } from '../api';
+import { get } from './api';
 
 export type KeyboardMeta = {
   product_id: string;
