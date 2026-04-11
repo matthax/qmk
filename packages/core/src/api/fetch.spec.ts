@@ -1,9 +1,7 @@
 // eslint-disable-next-line
 import test from 'ava';
-import fetchPonyfill from 'fetch-ponyfill';
 import { post, get, RequestError } from './fetch';
 
-const { Request, Response } = fetchPonyfill();
 const HTTP_BIN = 'https://httpbin.org/';
 const api = (endpoint: string): string => `${HTTP_BIN}${endpoint}`;
 

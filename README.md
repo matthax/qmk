@@ -1,73 +1,110 @@
- [![npm][shield-npm]][package] [![CircleCI][shield-circle]](https://circleci.com/gh/matthax/qmk)   [![CodeCov][shield-codecov]][codecov] [![node][shield-node]][package] [![Discord](https://img.shields.io/discord/440868230475677696?style=flat-square)](https://discord.gg/Uq7gcHh)
-
 # QMK.js
 
-Bring the power of the open source project to your browser or node.js project. Get information on keyboards and layouts and even compile firmware using the [QMK API][qmk-api].
+[![npm][shield-npm]][package] [![node][shield-node]][package]
 
+JavaScript/TypeScript bindings for the [QMK API][qmk-api]. Fetch keyboard metadata, layouts, firmware, and more from the browser or Node.js.
+
+## Packages
+
+| Package | Description |
+| --- | --- |
+| [`@qmk/core`](packages/core) | Browser-safe keyboard and firmware fetching |
+| [`@qmk/node`](packages/node) | (Active Development) Node/Electron extensions (filesystem, USB HID in progress) |
 
 ## Installation
-Using yarn (recommended):
 
-`yarn add qmk`
-
-Or with npm:
-
-`npm install --save qmk`
-
+```sh
+bun add @qmk/core
+# or
+npm install @qmk/core
+```
 
 ## Usage
 
-Get metadata for keyboards using the [QMK Keyboard API][keyboard-api]
+### Single keyboard
 
-```javascript
-import QMK from 'qmk';
+```typescript
+import QMK from '@qmk/core';
 
-// Create an API client using the provided version
-const client = new QMK('v1');
-const keyboardName = 'massdrop/alt';
-
-// Fetch keyboard metadata
-client.keyboards(keyboardName).then(({ keyboards }) => {
-  // The "keyboards" call always returns a dictionary of keyboards
-  // So we keep keyboardName to reference it in the response body
-  console.info(keyboards[keyboardName]);
-}).catch((err) => {
-  console.error(err);
-});
+const client = new QMK();
+const kb = await client.keyboard('crkbd/rev1');
+console.info(kb?.keyboard_name, kb?.layouts);
 ```
 
-Get metadata for every supported QMK keyboard using the special `all` keyword
+### List all keyboard names
 
-```javascript
-import QMK from 'qmk';
+Returns a lightweight name-only dictionary (~77KB). Values are `undefined`, use this to check what's available without fetching all the metadata.
 
-// Create an API client using the provided version
-const client = new QMK('v1');
-
-// Fetch keyboard metadata
-client.keyboards('all').then(({ keyboards }) => {
-  console.info(keyboards);
-}).catch((err) => {
-  console.error(err);
-});
+```typescript
+const { keyboards } = await client.keyboards();
+const names = Object.keys(keyboards);
+console.info(`${names.length} keyboards available`);
 ```
-Check out more usage examples in the [examples directory](examples)
+
+### Full keyboard metadata
+
+Fetches all keyboards with complete metadata (~28MB).
+
+```typescript
+const { keyboards } = await client.keyboards({ detailed: true });
+for (const kb of Object.values(keyboards)) {
+  console.info(`${kb.keyboard_name}: ${Object.keys(kb.layouts).length} layouts`);
+}
+```
+
+### Firmware list
+
+```typescript
+const { last_updated, files } = await client.firmware();
+console.info(`${files.length} firmware files as of ${last_updated}`);
+```
+
+### Readme and keymaps
+
+```typescript
+const md = await client.readme('crkbd/rev1');
+const { keyboards } = await client.keymaps('crkbd/rev1', 'default');
+```
+
+### USB vendor/product lookup
+
+```typescript
+const vendors = await client.usb();
+const massdrop = await client.vendor('0x04D8');
+const alt = await client.product('0x04D8', '0xEED3');
+```
+
+## API
+
+All methods are on the `QMK` class and cache results after the first fetch.
+
+| Method | Returns | Description |
+| --- | --- | --- |
+| `keyboard(name)` | `Keyboard \| undefined` | Full metadata for one keyboard |
+| `keyboards()` | `KeyboardsResponse` | Name-only dictionary |
+| `keyboards({ detailed: true })` | `KeyboardsResponse<Keyboard>` | Full metadata for all keyboards |
+| `readme(name)` | `string` | Keyboard readme as markdown |
+| `keymaps(name, keymap)` | `KeymapResponse` | Keymap layer data |
+| `firmware()` | `FirmwareListResponse` | List of compiled firmware files |
+| `usb()` | `Vendors` | USB vendor/product index |
+| `vendor(vid)` | `Products \| undefined` | All products for a vendor ID |
+| `product(vid, pid)` | `KeyboardsMeta \| undefined` | Keyboards matching a vendor + product ID |
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
+Pull requests are welcome. For major changes please open an issue first.
+
+Run tests:
+
+```sh
+bun run --filter '@qmk/core' test
+```
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
 
-[qmk-api]: https://github.com/qmk/qmk_api/
-[keyboard-api]: https://github.com/qmk/qmk_api/blob/master/docs/keyboard_api.md
-[compiler-api]: https://github.com/qmk/qmk_api/blob/master/docs/api_docs.md
-[chat]: 440868230475677697
-[package]: https://www.npmjs.com/package/qmk
-[codecov]: https://codecov.io/gh/matthax/qmk
-[shield-npm]: https://img.shields.io/npm/v/qmk?style=flat-square
-[shield-node]: https://img.shields.io/node/v/qmk?style=flat-square
-[shield-circle]: https://img.shields.io/circleci/build/github/matthax/qmk?style=flat-square
-[shield-codecov]: https://img.shields.io/codecov/c/github/matthax/qmk?style=flat-square
+[qmk-api]: https://docs.qmk.fm/api_docs
+[package]: https://www.npmjs.com/package/@qmk/core
+[shield-npm]: https://img.shields.io/npm/v/@qmk/core?style=flat-square
+[shield-node]: https://img.shields.io/node/v/@qmk/core?style=flat-square
